@@ -31,7 +31,3 @@ from foo.scores_view as sv
 group by player
 order by sum(score) desc
 limit 10;
-
-select count(*)
-from foo.scores_view
-where created_at <= DATE_SUB(now(), INTERVAL 1 MINUTE );
