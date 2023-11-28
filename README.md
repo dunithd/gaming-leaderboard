@@ -25,7 +25,16 @@ docker compose up -d
 
 That will spin up a Redpanda cluster with a single broker, the Redpanda Console, and a ClickHouse cluster with one server.
 
-## Set up Redpanda
+### Install Python dependencies
+The solution depends on several Python libraries. Make sure you have Python 3.x.x installed in your system, along with `pip`.
+
+Then installed the dependencies by running:
+
+```
+pip install -r requirements.txt
+```
+
+### Set up Redpanda
 
 Create a Redpanda topic(`gameplays`) to hold the gameplay events:
 
@@ -41,7 +50,7 @@ python producer.py
 
 You should see the `gameplays` event getting populated with JSON events.
 
-## Set up ClickHouse
+### Set up ClickHouse
 ClickHouse can be configured to ingest gameplay events from Redpanda into a table with Kafka engine.
 
 Access the ClickHouse Playground web UI by visiting http://localhost:18123/play.
@@ -82,7 +91,7 @@ SELECT * FROM foo.scores_view;
 
 It should print all the results received from Redpanda so far.
 
-## Run the Streamlit dashboard
+### Run the Streamlit dashboard
 
 Navigate to the `streamlit` directory and run the dashboard by:
 
